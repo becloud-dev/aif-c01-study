@@ -1,0 +1,40 @@
+{
+  "name": "aif-c01-study",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "content": "node scripts/content.ts",
+    "build": "npm run content && zola build",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy --minify",
+    "test": "vitest run",
+    "typecheck": "npm run content && tsc --noEmit && tsc --noEmit -p e2e",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "check": "npm run lint && npm run typecheck && npm test && zola check --skip-external-links",
+    "e2e": "npm run build && playwright test",
+    "prepare": "git config core.hooksPath .githooks"
+  },
+  "dependencies": {
+    "hono": "^4.13.13",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4",
+    "wrangler": "^4.149.0"
+  },
+  "allowScripts": {
+    "esbuild": false,
+    "workerd": false
+  },
+  "description": "Study course and practice exam simulator for the AWS Certified AI Practitioner (AIF-C01) exam"
+}

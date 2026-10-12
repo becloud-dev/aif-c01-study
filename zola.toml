@@ -1,0 +1,11 @@
+# Site configuration. The build output is `public/`, which wrangler serves as static assets.
+base_url = "https://example.com"
+title = "AIF-C01 Study"
+description = "Study course and practice exam for the AWS Certified AI Practitioner (AIF-C01) exam."
+default_language = "en"
+generate_feeds = false
+build_search_index = false
+minify_html = false
+
+[extra]
+disclaimer = "Independent study material. Not affiliated with, endorsed by or sponsored by Amazon Web Services. AWS and the AWS Certified AI Practitioner name belong to their owners."

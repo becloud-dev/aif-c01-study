@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% set study = get_section(path="study/_index.md") %}
+{% set practice = get_section(path="questions/_index.md") %}
+{% set exam = get_section(path="exam/_index.md") %}
+<h1>{{ section.title }}</h1>
+{{ section.content | safe }}
+<ul class="cards">
+  <li><a href="{{ study.path }}">Study course</a></li>
+  <li><a href="{{ practice.path }}">Practice questions</a></li>
+  <li><a href="{{ exam.path }}">Practice exam</a></li>
+</ul>
+{% endblock content %}

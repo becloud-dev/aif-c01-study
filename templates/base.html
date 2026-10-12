@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta name="description" content="{% block description %}{{ config.description }}{% endblock description %}">
+    <link rel="stylesheet" href="/styles.css">
+    {# Swap 4xx too (inline messages); a 5xx stays an error. #}
+    <meta name="htmx-config" content='{"responseHandling":[{"code":"204","swap":false},{"code":"[23]..","swap":true},{"code":"4..","swap":true},{"code":"5..","swap":false,"error":true}]}'>
+    <script src="/htmx.min.js" defer></script>
+  </head>
+  <body hx-boost="true">
+    <header class="topbar">
+      <a class="brand" href="/">{{ config.title }}</a>
+      <nav>
+        {# Root-relative paths: pages and assets work on any host (local, preview, production). #}
+        {% set study = get_section(path="study/_index.md") %}
+        {% set practice = get_section(path="questions/_index.md") %}
+        {% set exam = get_section(path="exam/_index.md") %}
+        <a href="{{ study.path }}">Study</a>
+        <a href="{{ practice.path }}">Practice</a>
+        <a href="{{ exam.path }}">Exam</a>
+      </nav>
+    </header>
+    <main>{% block content %}{% endblock content %}</main>
+    <footer class="site-footer"><p>{{ config.extra.disclaimer }}</p></footer>
+  </body>
+</html>

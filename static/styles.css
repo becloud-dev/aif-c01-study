@@ -1,0 +1,117 @@
+:root {
+  color-scheme: light dark;
+  --max: 46rem;
+  --gap: 1rem;
+  --accent: #1f6feb;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font:
+    16px / 1.55 system-ui,
+    sans-serif;
+}
+.topbar {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+}
+.topbar nav {
+  display: flex;
+  gap: var(--gap);
+}
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+.site-footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+.cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.cards a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+.eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+  margin: 0;
+}
+.callout {
+  border-left: 0.25rem solid var(--accent);
+  padding: 0.5rem 0.75rem;
+  margin: 1rem 0;
+}
+.callout.trap {
+  border-color: #d29922;
+}
+.option {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.option:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+.primary {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  text-align: left;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+}
+
+/* Last: wins over the classes above at equal specificity. */
+[hidden] {
+  display: none;
+}
