@@ -9,7 +9,7 @@
   <h1>{{ page.title }}</h1>
   <p>{{ page.extra.question_text }}</p>
   {# The Worker checks the answer; `correct` is never printed in this page. #}
-  <form hx-post="/quiz/check" hx-target="#feedback" hx-swap="innerHTML">
+  <form hx-post="/x/quiz/check" hx-target="#feedback" hx-swap="innerHTML">
     <input type="hidden" name="question_id" value="{{ page.extra.question_id }}">
     <fieldset>
       <legend class="visually-hidden">Options</legend>

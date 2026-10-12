@@ -22,6 +22,6 @@
   {% if page.extra.exam_tip %}<aside class="callout tip"><strong>Exam tip.</strong> {{ page.extra.exam_tip }}</aside>{% endif %}
   {% if page.extra.exam_trap %}<aside class="callout trap"><strong>Exam trap.</strong> {{ page.extra.exam_trap }}</aside>{% endif %}
   {# The Worker answers this with the "mark complete" control for the visitor's cookie. #}
-  <div id="progress" hx-get="/progress/{{ page.extra.topic_id }}" hx-trigger="load" hx-swap="outerHTML"></div>
+  <div id="progress" hx-get="/x/progress/{{ page.extra.topic_id }}" hx-trigger="load" hx-swap="outerHTML"></div>
 </article>
 {% endblock content %}

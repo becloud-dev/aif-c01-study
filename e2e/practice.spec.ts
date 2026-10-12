@@ -7,9 +7,10 @@ test('a wrong answer says so and shows the rationale', async ({ page }) => {
   await page.getByRole('button', { name: 'Check answer' }).click()
   await expect(page.getByText('Incorrect')).toBeVisible()
   await expect(page.getByText('The correct answer is B.')).toBeVisible()
-  // the rationale is pulled from the page itself and must be visible, not just present
-  await expect(page.getByRole('heading', { name: 'Why' })).toBeVisible()
-  await expect(page.getByText('Summarisation is a core capability')).toBeVisible()
+  // the rationale is copied out of the page's hidden slot into #feedback and must be visible there
+  const feedback = page.locator('#feedback')
+  await expect(feedback.getByRole('heading', { name: 'Why' })).toBeVisible()
+  await expect(feedback.getByText('Summarisation is a core capability')).toBeVisible()
 })
 
 test('a right answer says so', async ({ page }) => {
