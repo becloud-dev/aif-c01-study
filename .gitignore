@@ -6,3 +6,5 @@ src/generated/
 .wrangler/
 playwright-report/
 test-results/
+# the shared workflows, checked out by the dev-execute rounds
+.ai-workflows/
